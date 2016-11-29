@@ -18,48 +18,6 @@ use yii\base\Exception;
  * 
  * 传递的数组格式，关联数组就可以
  * 
- * 用法如下
-    echo \backend\widgets\TreeWidget::widget([
-    'dataProvider' => $menus,
-    'pid' => 'pid',
-    'tableOptions' => ['id' => 'menu'],
-    'formatParam' => 'name',
-    'tableHead' => [
-        '菜单id',
-        '菜单名称',
-        '菜单类名',
-        '菜单方法名',
-        '父id',
-        '状态',
-        '是否菜单',
-    ],
-    'lastTableHead' => '操作',
-    'action' => [
-        [
-            'label' => '<i class="fa fa-pencil"></i>',
-            'url' => [
-                'edit'=>'/auth-menu/edit',
-            ],
-            'urlParams' => ['id'],
-            'options' => [
-                'class' => Color::getBthClass(Color::COLOR_DEFAULT),
-                'title' => '编辑'
-            ]
-        ],
-        [
-            'label' => '<i class="fa fa-trash-o"></i>',
-            'url' => [
-                'add' => '/auth-menu/delete',
-            ],
-            'urlParams' => ['id'],
-            'options' => [
-                'onclick' => "return confirm('确认要删除吗?');",
-                'class' => Color::getBthClass(Color::COLOR_DEFAULT),
-                'title' => '删除'
-            ]
-        ],
-    ],  
-]);
  */
 class TreeWidget extends Widget {
 
@@ -750,5 +708,48 @@ class TreeWidget extends Widget {
 
         return $html;
     }
-
 }
+
+// 使用方法
+
+echo \backend\widgets\TreeWidget::widget([
+    'dataProvider' => $menus,
+    'pid' => 'pid',
+    'tableOptions' => ['id' => 'menu'],
+    'formatParam' => 'name',
+    'tableHead' => [
+        '菜单id',
+        '菜单名称',
+        '菜单类名',
+        '菜单方法名',
+        '父id',
+        '状态',
+        '是否菜单',
+    ],
+    'lastTableHead' => '操作',
+    'action' => [
+        [
+            'label' => '<i class="fa fa-pencil"></i>',
+            'url' => [
+                'edit'=>'/auth-menu/edit',
+            ],
+            'urlParams' => ['id'],
+            'options' => [
+                'class' => Color::getBthClass(Color::COLOR_DEFAULT),
+                'title' => '编辑'
+            ]
+        ],
+        [
+            'label' => '<i class="fa fa-trash-o"></i>',
+            'url' => [
+                'add' => '/auth-menu/delete',
+            ],
+            'urlParams' => ['id'],
+            'options' => [
+                'onclick' => "return confirm('确认要删除吗?');",
+                'class' => Color::getBthClass(Color::COLOR_DEFAULT),
+                'title' => '删除'
+            ]
+        ],
+    ],  
+]);
